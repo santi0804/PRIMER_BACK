@@ -22,6 +22,11 @@ public class Productos implements Serializable {
     @Column(name= "valor_p")
     private double valor_p;
 
+    @Column(name="mes_de_consumo")
+    private String Mes_De_Consumo;
+
+
+
     //constructor
 
     public Productos() {
@@ -62,6 +67,12 @@ public class Productos implements Serializable {
         this.valor_p = valor_p;
     }
 
+    public String getMes_De_Consumo() {
+        return Mes_De_Consumo;
+    }
 
+    public void setMes_De_Consumo(String mes_De_Consumo) {
+        Mes_De_Consumo = mes_De_Consumo;
+    }
 }
 
