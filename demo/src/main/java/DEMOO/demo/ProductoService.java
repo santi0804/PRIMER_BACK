@@ -38,6 +38,7 @@ import java.util.Optional;
               updatedProducto.setReferencia_p(producto.getReferencia_p());
               updatedProducto.setValor_p(producto.getValor_p());
               updatedProducto.setMes_De_Consumo(producto.getMes_De_Consumo());
+              updatedProducto.setFecha_p(producto.getFecha_p());
               return productosRepository.save(updatedProducto);
           } else {
               throw new RuntimeException("Producto no encontrado");

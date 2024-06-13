@@ -3,6 +3,7 @@ package DEMOO.demo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class Productos implements Serializable {
@@ -25,9 +26,11 @@ public class Productos implements Serializable {
     @Column(name="mes_de_consumo")
     private String Mes_De_Consumo;
 
+    @Column(name="fecha_p")
+    private Date fecha_p;
 
 
-    //constructor
+//constructor
 
     public Productos() {
     }
@@ -74,5 +77,14 @@ public class Productos implements Serializable {
     public void setMes_De_Consumo(String mes_De_Consumo) {
         Mes_De_Consumo = mes_De_Consumo;
     }
+
+
+    public Date getFecha_p() {
+        return fecha_p;
+    }
+    public void setFecha_p(Date fecha_p) {
+        this.fecha_p = fecha_p;
+    }
 }
+
 
