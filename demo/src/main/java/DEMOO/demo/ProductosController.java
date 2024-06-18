@@ -15,6 +15,8 @@ public class ProductosController {
     @Autowired
     private ProductoService productoService;
 
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/productos")     // Este empoy me trae todos los productos //
     public ResponseEntity<List<Productos>> getAllProductos() {
         List<Productos> productos = productoService.getAllProductos();
@@ -26,7 +28,7 @@ public class ProductosController {
         Optional<Productos> productos = productoService.getProductosById(id);
         return new ResponseEntity<>(productos.get(), HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/registro")
     public ResponseEntity<Productos> addProducto(@RequestBody Productos producto) {
         Productos saveProducto = productoService.saveProducto(producto);
