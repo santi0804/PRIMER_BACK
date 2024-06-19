@@ -17,18 +17,20 @@ public class ProductosController {
 
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @GetMapping("/productos")     // Este empoy me trae todos los productos //
+    @GetMapping("/productos")                                   // Este empoy me trae todos los productos //
     public ResponseEntity<List<Productos>> getAllProductos() {
         List<Productos> productos = productoService.getAllProductos();
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")       // este empoy me devuelve un producto con id//
+    @GetMapping("/{id}")                                         // este empoy me devuelve un producto con id//
     public ResponseEntity<Productos> getProductoById(@PathVariable(name = "id") Long id) {
         Optional<Productos> productos = productoService.getProductosById(id);
         return new ResponseEntity<>(productos.get(), HttpStatus.OK);
     }
-    @CrossOrigin(origins = "http://localhost:5173")
+
+
+    @CrossOrigin(origins = "http://localhost:5173")               // tener presente este campo para integrar cada endpoint //
     @PostMapping("/registro")
     public ResponseEntity<Productos> addProducto(@RequestBody Productos producto) {
         Productos saveProducto = productoService.saveProducto(producto);
