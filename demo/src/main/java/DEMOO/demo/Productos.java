@@ -23,6 +23,7 @@ public class Productos implements Serializable {
     @Column(name= "valor_p")
     private double valor_p;
 
+
     @Column(name="mes_de_consumo")
     private String Mes_De_Consumo;
 
