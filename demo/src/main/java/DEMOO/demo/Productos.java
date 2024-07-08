@@ -8,6 +8,7 @@ import java.util.Date;
 @Entity
 public class Productos implements Serializable {
 
+    // aqui un nuevo producto con la cedula
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

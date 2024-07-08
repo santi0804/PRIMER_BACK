@@ -43,7 +43,8 @@ public class ProductosController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/{id}")                            // con este endpoint actualizamos los datos //
     public ResponseEntity<Productos> updateProducto(@PathVariable("id") Long id, @RequestBody Productos producto) {
         try {
             Productos updatedProducto = productoService.updateProducto(id, producto);
