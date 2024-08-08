@@ -24,7 +24,7 @@ public class ProductosController {
     }
 
     @GetMapping("/{id}")                                         // este empoy me devuelve un producto con id//
-    public ResponseEntity<Productos> getProductoById(@PathVariable(name = "id") Long id) {
+    public ResponseEntity<Productos> getProductoById(@PathVariable(name = "id") Integer id) {
         Optional<Productos> productos = productoService.getProductosById(id);
         return new ResponseEntity<>(productos.get(), HttpStatus.OK);
     }
@@ -38,14 +38,14 @@ public class ProductosController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Productos> deleteProducto(@PathVariable Long id) {
+    public ResponseEntity<Productos> deleteProducto(@PathVariable Integer id) {
         productoService.deleteProductos(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/{id}")                            // con este endpoint actualizamos los datos //
-    public ResponseEntity<Productos> updateProducto(@PathVariable("id") Long id, @RequestBody Productos producto) {
+    public ResponseEntity<Productos> updateProducto(@PathVariable("id") Integer id, @RequestBody Productos producto) {
         try {
             Productos updatedProducto = productoService.updateProducto(id, producto);
             return new ResponseEntity<>(updatedProducto, HttpStatus.OK);

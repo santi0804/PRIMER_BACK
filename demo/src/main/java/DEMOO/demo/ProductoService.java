@@ -18,7 +18,7 @@ import java.util.Optional;
           return productosRepository.findAll();
       }
 
-      public Optional<Productos> getProductosById(Long id) {
+      public Optional<Productos> getProductosById(Integer id) {
           return productosRepository.findById(id);
       }
 
@@ -26,11 +26,11 @@ import java.util.Optional;
           return productosRepository.save(productos);
       }
 
-      public void deleteProductos(Long id) {
+      public void deleteProductos(Integer id) {
           productosRepository.deleteById(id);
       }
 
-      public Productos updateProducto(Long id, Productos producto) {
+      public Productos updateProducto(Integer id, Productos producto) {
           Optional<Productos> productoExistente = productosRepository.findById(id);
           if (productoExistente.isPresent()) {
               Productos updatedProducto = productoExistente.get();
@@ -39,6 +39,7 @@ import java.util.Optional;
               updatedProducto.setValor_p(producto.getValor_p());
               updatedProducto.setMes_De_Consumo(producto.getMes_De_Consumo());
               updatedProducto.setFecha_p(producto.getFecha_p());
+              updatedProducto.setCedula_p(producto.getCedula_p());
               return productosRepository.save(updatedProducto);
           } else {
               throw new RuntimeException("Producto no encontrado");
